@@ -1,0 +1,43 @@
+.headerMenu {
+    display: flex;
+    height: 50px;
+    align-items: center;
+
+    & span {
+        height: 28px;
+        width: 30px;
+        margin-left: 10px;
+        cursor: pointer;
+        font-size: 2rem;
+        text-align: center;
+    }
+    & p {
+        flex: 1;
+        font-size: 1.6rem;
+    }
+}
+
+.menuList {
+    width: 224px;
+    .menuItem {
+        margin-left: 0px;
+        width: 100%;
+        padding: 11px 16px;
+        height: 46px;
+        display: flex;
+        justify-content: flex-start;
+        background-color: transparent;
+        font-family: 'ProximaNova,SofiaPro';
+        color: #545455;
+
+        &:hover {
+            background: rgba(22, 24, 35, 0.03);
+        }
+    }
+    .separate {
+        border-color: #eeecec;
+        border-top-style: solid;
+        border-radius: initial;
+        border-top-width: 1px;
+    }
+}

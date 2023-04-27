@@ -1,0 +1,189 @@
+.headerWrap {
+    --height-input-search: 46px;
+    --top-spacer-after: 9px;
+    --height-search-icon: 52px;
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12);
+}
+
+.innerHeader {
+    width: var(--width-inner-header-Header);
+    height: 100%;
+    // background-color: antiquewhite;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 300px;
+    padding-left: 16px;
+}
+
+.search {
+    position: relative;
+    width: 415px;
+    height: var(--height-input-search);
+    background-color: rgba(22, 24, 35, 0.0588235294);
+    padding-left: 16px;
+    display: flex;
+    border-radius: 92px;
+    justify-content: space-between;
+    border: 1.5px solid transparent;
+
+    & input {
+        background-color: transparent;
+        flex: 1;
+        padding: 12px 0px;
+        font-size: 1.6rem;
+        caret-color: var(--primary);
+
+        &:not(:placeholder-shown) ~ .searchInput {
+            color: rgba(22, 24, 35, 0.75);
+        }
+    }
+
+    &:focus-within {
+        border-color: rgba(22, 24, 35, 0.2);
+    }
+
+    &::after {
+        position: absolute;
+        top: var(--top-spacer-after);
+        right: var(--height-search-icon);
+        content: '';
+        background-color: rgba(22, 24, 35, 0.12);
+        height: calc(var(--height-input-search) - var(--top-spacer-after) * 2);
+        width: 2px;
+    }
+}
+
+.popperSearch {
+    width: 415px;
+}
+
+.titleAccount {
+    h3 {
+        height: 30px;
+        padding: 5px 12px;
+        font-size: 1.6rem;
+        line-height: 2rem;
+        font-weight: 600;
+        color: rgba(22, 24, 35, 0.5);
+    }
+}
+
+.spinnerInput,
+.closeInput {
+    position: absolute;
+    top: 50%;
+    right: calc(var(--height-search-icon) + 16px);
+    transform: translateY(-50%);
+    font-size: 1.8rem;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.closeInput {
+    width: 18px;
+}
+
+.searchInput {
+    background-color: transparent;
+    width: var(--height-search-icon);
+    height: 100%;
+    border-bottom-right-radius: 92px;
+    border-top-right-radius: 92px;
+    color: rgba(22, 24, 35, 0.34);
+    font-size: 2rem;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+
+    &:active {
+        background-color: rgba(22, 24, 35, 0.06);
+    }
+}
+
+.actions {
+    width: 272px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+// no have user
+.uploadBtn {
+    width: 112px;
+    height: 36px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    cursor: pointer;
+    margin-right: 16px;
+
+    & svg {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+        color: var(--text-color);
+    }
+
+    & span {
+        font-size: 1.6rem;
+    }
+}
+.optionBtn {
+    width: 28px;
+    height: 28px;
+    margin-left: 16px;
+    font-size: 2.2rem;
+    cursor: pointer;
+    background-color: transparent;
+}
+// have user
+.imgUser {
+    width: 32px;
+    height: 32px;
+    margin-left: 20px;
+    cursor: pointer;
+
+    & img {
+        width: 100%;
+        border-radius: 50%;
+    }
+}
+.iconHaveUser {
+    position: relative;
+    font-size: 2.2rem;
+    cursor: pointer;
+    padding: 8px 6px;
+    display: flex;
+    align-items: center;
+    height: 38px;
+    width: 38px;
+
+    + .iconHaveUser {
+        margin-left: 8px;
+    }
+
+    & .notifi {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        background-color: var(--primary);
+        color: var(--white);
+        font-size: 1.6rem;
+        width: 24px;
+        height: 24px;
+        text-align: center;
+        border-radius: 8px;
+    }
+}

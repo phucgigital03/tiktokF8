@@ -1,0 +1,92 @@
+.btn {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 100px;
+    height: 36px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 4px;
+    user-select: none;
+    + .btn {
+        margin-left: 16px;
+    }
+}
+.title + .icon,
+.icon + .title {
+    margin-left: 8px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+
+// size button
+.sm {
+    min-width: 88px;
+    width: 88px;
+    height: 28px;
+    padding: 0 10px;
+}
+
+.lg {
+    min-width: 208px;
+    width: 100%;
+    height: 48px;
+}
+// type button
+.primary {
+    background-color: var(--primary);
+    color: var(--white);
+    &:hover {
+        background: linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.06),
+                rgba(0, 0, 0, 0.06)
+            ),
+            #fe2c55;
+    }
+}
+
+.outline {
+    border-style: solid;
+    border-radius: 4px;
+    color: rgba(254, 44, 85, 1);
+    border-color: rgba(254, 44, 85, 1);
+    background-color: var(--white);
+    line-height: 2.2rem;
+    font-weight: 200;
+    &:hover {
+        background-color: rgba(254, 44, 85, 0.06);
+    }
+}
+
+.rounded {
+    font-weight: 700;
+    font-size: 1.4rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border-radius: 52px;
+    line-height: 3rem;
+    text-align: center;
+    white-space: nowrap;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(22, 24, 35, 0.12);
+    color: var(--text-color);
+}
+
+.textOutline {
+    background-color: var(--white);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(22, 24, 35, 0.12);
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor: default;
+}

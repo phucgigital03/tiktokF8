@@ -1,0 +1,15 @@
+.defaultLayout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    width: var(--width-container-defaultLayout);
+    display: flex;
+}
+
+.content {
+    flex: 1;
+    min-height: 200px;
+}

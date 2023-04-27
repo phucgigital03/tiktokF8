@@ -2,7 +2,7 @@ import Header from '~/components/Layouts/components/Header';
 
 function HeaderOnly({ children }) {
     return (
-        <div>
+        <div className="headerOnly">
             <Header />
             {children}
         </div>
