@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import images from '~/assets/images';
 import styles from './Image.module.scss';
@@ -11,12 +11,18 @@ function Image({
     fallBack: fallBackFrOut = images.noImage,
     ...props
 }) {
+    const imgRef = useRef();
     const [fallBack, setFallBack] = useState('');
     const handleFallBack = () => {
-        setFallBack(fallBackFrOut);
+        if (src) {
+            imgRef.current.src = fallBackFrOut;
+        } else {
+            setFallBack(fallBackFrOut);
+        }
     };
     return (
         <img
+            ref={imgRef}
             className={clsx(styles.img, {
                 [className]: className,
             })}

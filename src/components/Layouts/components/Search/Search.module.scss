@@ -1,0 +1,98 @@
+.search {
+    position: relative;
+    width: 415px;
+    height: var(--height-input-search);
+    background-color: rgba(22, 24, 35, 0.0588235294);
+    padding-left: 16px;
+    display: flex;
+    border-radius: 92px;
+    justify-content: space-between;
+    border: 1.5px solid transparent;
+
+    & input {
+        background-color: transparent;
+        flex: 1;
+        padding: 12px 0px;
+        font-size: 1.6rem;
+        caret-color: var(--primary);
+
+        &:not(:placeholder-shown) ~ .searchInput {
+            color: rgba(22, 24, 35, 0.75);
+        }
+    }
+
+    &:focus-within {
+        border-color: rgba(22, 24, 35, 0.2);
+    }
+
+    &::after {
+        position: absolute;
+        top: var(--top-spacer-after);
+        right: var(--height-search-icon);
+        content: '';
+        background-color: rgba(22, 24, 35, 0.12);
+        height: calc(var(--height-input-search) - var(--top-spacer-after) * 2);
+        width: 2px;
+    }
+}
+
+.popperSearch {
+    width: 415px;
+}
+
+.titleAccount {
+    h3 {
+        height: 30px;
+        padding: 5px 12px;
+        font-size: 1.6rem;
+        line-height: 2rem;
+        font-weight: 600;
+        color: rgba(22, 24, 35, 0.5);
+    }
+}
+
+.spinnerInput,
+.closeInput {
+    position: absolute;
+    top: 50%;
+    right: calc(var(--height-search-icon) + 16px);
+    transform: translateY(-50%);
+    font-size: 1.8rem;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+@keyframes spinner {
+    from {
+        transform: translateY(-50%) rotate(0);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+.spinnerInput {
+    animation: spinner 0.8s linear infinite;
+}
+
+.closeInput {
+    width: 18px;
+}
+
+.searchInput {
+    background-color: transparent;
+    width: var(--height-search-icon);
+    height: 100%;
+    border-bottom-right-radius: 92px;
+    border-top-right-radius: 92px;
+    color: rgba(22, 24, 35, 0.34);
+    font-size: 2rem;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+
+    &:active {
+        background-color: rgba(22, 24, 35, 0.06);
+    }
+}

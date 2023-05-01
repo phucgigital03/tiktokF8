@@ -1,10 +1,7 @@
 import clsx from 'clsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-    faMagnifyingGlass,
     faPlus,
-    faSpinner,
-    faXmark,
     faEllipsisVertical,
     faEarthAsia,
     faKeyboard,
@@ -14,18 +11,16 @@ import {
     faGear,
     faArrowRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
-import HeadlessTippy from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import Button from '~/components/Button/Button';
-import { PopperWrap } from '~/components/Popper';
-import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
 import { UploadIcon, MessageIcon } from '~/components/Icons';
 import Image from '~/components/Image';
+import Search from '../Search/Search';
 
 const items = [
     {
@@ -90,38 +85,7 @@ function Header() {
                     <img src={images.logo} alt="tiktok" />
                 </div>
                 <div className={clsx(styles.fixHeadlessTippy)}>
-                    <HeadlessTippy
-                        visible={true}
-                        interactive
-                        render={(attrs) => (
-                            <div
-                                className={clsx(styles.popperSearch)}
-                                tabIndex="-1"
-                                {...attrs}
-                            >
-                                <PopperWrap>
-                                    <div className={clsx(styles.titleAccount)}>
-                                        <h3>Tai khoan</h3>
-                                    </div>
-                                    <AccountItem />
-                                    <AccountItem />
-                                </PopperWrap>
-                            </div>
-                        )}
-                    >
-                        <div className={clsx(styles.search)}>
-                            <input type="text" placeholder="Tim kiem" />
-                            <button className={clsx(styles.spinnerInput)}>
-                                <FontAwesomeIcon icon={faSpinner} />
-                            </button>
-                            <button className={clsx(styles.closeInput)}>
-                                <FontAwesomeIcon icon={faXmark} />
-                            </button>
-                            <button className={clsx(styles.searchInput)}>
-                                <FontAwesomeIcon icon={faMagnifyingGlass} />
-                            </button>
-                        </div>
-                    </HeadlessTippy>
+                    <Search />
                 </div>
                 <div className={clsx(styles.actions)}>
                     {currentUser ? (
