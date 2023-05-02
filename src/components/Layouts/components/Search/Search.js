@@ -36,6 +36,18 @@ function Search() {
         callApiSearch();
     }, [searchText]);
 
+    const handleHiddenSearch = () => {
+        setSearchResult([]);
+        setSearchValue('');
+    };
+
+    const handleChange = (e) => {
+        const searchText = e.target.value;
+        if (!searchText.startsWith(' ')) {
+            setSearchValue(searchText);
+        }
+    };
+
     return (
         <HeadlessTippy
             visible={showSearchResult && searchResult.length > 0}
@@ -51,7 +63,13 @@ function Search() {
                             <h3>Tai khoan</h3>
                         </div>
                         {searchResult.map((item) => {
-                            return <AccountItem key={item.id} item={item} />;
+                            return (
+                                <AccountItem
+                                    handleHidden={handleHiddenSearch}
+                                    key={item.id}
+                                    item={item}
+                                />
+                            );
                         })}
                     </PopperWrap>
                 </div>
@@ -66,9 +84,7 @@ function Search() {
                     ref={inputSearch}
                     type="text"
                     placeholder="Tim kiem"
-                    onChange={(e) => {
-                        setSearchValue(e.target.value);
-                    }}
+                    onChange={handleChange}
                     onFocus={() => {
                         setShowSearchResult(true);
                     }}
@@ -90,7 +106,12 @@ function Search() {
                         <FontAwesomeIcon icon={faXmark} />
                     </button>
                 )}
-                <button className={clsx(styles.searchInput)}>
+                <button
+                    className={clsx(styles.searchInput)}
+                    onMouseDown={(event) => {
+                        event.preventDefault();
+                    }}
+                >
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </button>
             </div>

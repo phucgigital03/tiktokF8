@@ -30,7 +30,8 @@ function Menu({ children, items }) {
                 setDataMenu((prevState) => [prevState[0]]);
             }}
             delay={[0, 700]}
-            visible={true}
+            // visible={true}
+            hideOnClick={false}
             offset={[10, 12]}
             interactive
             placement="bottom-end"
@@ -43,28 +44,30 @@ function Menu({ children, items }) {
                                 title={currentMenu.headerTitle}
                             />
                         )}
-                        {currentMenu.data.map((item, ind) => {
-                            const checkChildren = !!item.children;
-                            return (
-                                <Button
-                                    key={ind}
-                                    to={item.to}
-                                    iconLeft={item.icon}
-                                    className={clsx(styles.menuItem, {
-                                        [styles.separate]: item.separate,
-                                    })}
-                                    onClick={() => {
-                                        if (checkChildren) {
-                                            handleDateMenu(item.children);
-                                        } else {
-                                            onchange(item);
-                                        }
-                                    }}
-                                >
-                                    {item.title}
-                                </Button>
-                            );
-                        })}
+                        <div className={clsx(styles.wrapItem)}>
+                            {currentMenu.data.map((item, ind) => {
+                                const checkChildren = !!item.children;
+                                return (
+                                    <Button
+                                        key={ind}
+                                        to={item.to}
+                                        iconLeft={item.icon}
+                                        className={clsx(styles.menuItem, {
+                                            [styles.separate]: item.separate,
+                                        })}
+                                        onClick={() => {
+                                            if (checkChildren) {
+                                                handleDateMenu(item.children);
+                                            } else {
+                                                onchange(item);
+                                            }
+                                        }}
+                                    >
+                                        {item.title}
+                                    </Button>
+                                );
+                            })}
+                        </div>
                     </PopperWrap>
                 </div>
             )}

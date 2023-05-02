@@ -13,6 +13,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+import { Link } from 'react-router-dom';
 
 import styles from './Header.module.scss';
 import images from '~/assets/images';
@@ -21,10 +22,11 @@ import Menu from '~/components/Popper/Menu';
 import { UploadIcon, MessageIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search/Search';
+import { routes } from '~/config/routes';
 
 const items = [
     {
-        title: 'Vietnamese',
+        title: 'Languague',
         icon: <FontAwesomeIcon icon={faEarthAsia} />,
         children: {
             headerTitle: 'Languague',
@@ -82,7 +84,9 @@ function Header() {
         <header className={clsx(styles.headerWrap)}>
             <div className={clsx(styles.innerHeader)}>
                 <div className={clsx(styles.logo)}>
-                    <img src={images.logo} alt="tiktok" />
+                    <Link to={routes.home}>
+                        <img src={images.logo} alt="tiktok" />
+                    </Link>
                 </div>
                 <div className={clsx(styles.fixHeadlessTippy)}>
                     <Search />

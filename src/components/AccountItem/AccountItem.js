@@ -6,9 +6,13 @@ import { Link } from 'react-router-dom';
 import styles from './AccountItem.module.scss';
 import Image from '~/components/Image';
 
-function AccountItem({ item }) {
+function AccountItem({ item, handleHidden = () => {} }) {
     return (
-        <Link to={`/@${item.nickname}`} className={clsx(styles.infoUser)}>
+        <Link
+            to={`/profile/${item.nickname}`}
+            className={clsx(styles.infoUser)}
+            onClick={handleHidden}
+        >
             <div className={clsx(styles.wrapImgUser)}>
                 <Image src={item.avatar} alt="imguser" />
             </div>
