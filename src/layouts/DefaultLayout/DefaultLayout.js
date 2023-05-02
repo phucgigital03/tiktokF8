@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 
 import styles from './DefaultLayout.module.scss';
-import Header from '~/components/Layouts/components/Header';
-import SideBar from './SideBar/SideBar';
+import Header from '~/layouts/components/Header';
+import SideBar from './SideBar';
 
 function DefaultLayout({ children }) {
     return (
