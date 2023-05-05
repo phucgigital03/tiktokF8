@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const fullStackRequest = axios.create({
-    baseURL: 'https://tiktok.fullstack.edu.vn/api',
+    baseURL: process.env.REACT_APP_URL_FULLSTACK,
 });

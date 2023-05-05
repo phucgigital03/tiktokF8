@@ -10,6 +10,30 @@ import HeaderMenu from './HeaderMenu';
 function Menu({ children, items }) {
     const [dataMenu, setDataMenu] = useState([{ data: items }]);
     const currentMenu = dataMenu[dataMenu.length - 1];
+    const renderItems = () => {
+        return currentMenu.data.map((item, ind) => {
+            const checkChildren = !!item.children;
+            return (
+                <Button
+                    key={ind}
+                    to={item.to}
+                    iconLeft={item.icon}
+                    className={clsx(styles.menuItem, {
+                        [styles.separate]: item.separate,
+                    })}
+                    onClick={() => {
+                        if (checkChildren) {
+                            handleDateMenu(item.children);
+                        } else {
+                            onchange(item);
+                        }
+                    }}
+                >
+                    {item.title}
+                </Button>
+            );
+        });
+    };
     const onchange = (item) => {
         console.log(item);
     };
@@ -24,11 +48,12 @@ function Menu({ children, items }) {
             return [...prevState];
         });
     };
+    const handleResetMenu = () => {
+        setDataMenu((prevState) => [prevState[0]]);
+    };
     return (
         <Tippy
-            onHide={() => {
-                setDataMenu((prevState) => [prevState[0]]);
-            }}
+            onHide={handleResetMenu}
             delay={[0, 700]}
             // visible={true}
             hideOnClick={false}
@@ -45,28 +70,7 @@ function Menu({ children, items }) {
                             />
                         )}
                         <div className={clsx(styles.wrapItem)}>
-                            {currentMenu.data.map((item, ind) => {
-                                const checkChildren = !!item.children;
-                                return (
-                                    <Button
-                                        key={ind}
-                                        to={item.to}
-                                        iconLeft={item.icon}
-                                        className={clsx(styles.menuItem, {
-                                            [styles.separate]: item.separate,
-                                        })}
-                                        onClick={() => {
-                                            if (checkChildren) {
-                                                handleDateMenu(item.children);
-                                            } else {
-                                                onchange(item);
-                                            }
-                                        }}
-                                    >
-                                        {item.title}
-                                    </Button>
-                                );
-                            })}
+                            {renderItems()}
                         </div>
                     </PopperWrap>
                 </div>

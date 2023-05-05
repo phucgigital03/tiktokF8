@@ -16,6 +16,7 @@
         font-size: 1.6rem;
         caret-color: var(--primary);
         font-family: var(--font-family);
+        padding-right: 40px;
 
         &:not(:placeholder-shown) ~ .searchInput {
             color: rgba(22, 24, 35, 0.75);

@@ -7,12 +7,12 @@ import {
 import HeadlessTippy from '@tippyjs/react/headless';
 import clsx from 'clsx';
 import styles from './Search.module.scss';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { PopperWrap } from '~/components/Popper';
-import AccountItem from '~/components/AccountItem';
 import { useDebounce } from '~/hooks';
 import { searchHeaderApi } from '~/services/searchServices';
+import RenderAccount from './RenderAccount';
 
 function Search() {
     const inputSearch = useRef();
@@ -36,10 +36,10 @@ function Search() {
         callApiSearch();
     }, [searchText]);
 
-    const handleHiddenSearch = () => {
+    const handleHiddenSearch = useCallback(() => {
         setSearchResult([]);
         setSearchValue('');
-    };
+    }, []);
 
     const handleChange = (e) => {
         const searchText = e.target.value;
@@ -62,15 +62,10 @@ function Search() {
                         <div className={clsx(styles.titleAccount)}>
                             <h3>Tai khoan</h3>
                         </div>
-                        {searchResult.map((item) => {
-                            return (
-                                <AccountItem
-                                    handleHidden={handleHiddenSearch}
-                                    key={item.id}
-                                    item={item}
-                                />
-                            );
-                        })}
+                        <RenderAccount
+                            searchResult={searchResult}
+                            handleHiddenSearch={handleHiddenSearch}
+                        />
                     </PopperWrap>
                 </div>
             )}

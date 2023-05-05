@@ -17,12 +17,12 @@ import { Link } from 'react-router-dom';
 
 import styles from './Header.module.scss';
 import images from '~/assets/images';
-import Button from '~/components/Button/Button';
+import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import { UploadIcon, MessageIcon } from '~/components/Icons';
 import Image from '~/components/Image';
-import Search from '../Search/Search';
-import { routes } from '~/config/routes';
+import Search from '../Search';
+import config from '~/config';
 
 const items = [
     {
@@ -84,7 +84,7 @@ function Header() {
         <header className={clsx(styles.headerWrap)}>
             <div className={clsx(styles.innerHeader)}>
                 <div className={clsx(styles.logo)}>
-                    <Link to={routes.home}>
+                    <Link to={config.routes.home}>
                         <img src={images.logo} alt="tiktok" />
                     </Link>
                 </div>
@@ -116,7 +116,9 @@ function Header() {
                             >
                                 Tai len
                             </Button>
-                            <Button primary>Dang nhap</Button>
+                            <Button primary to={'/'}>
+                                Dang nhap
+                            </Button>
                         </>
                     )}
                     <Menu items={currentUser ? itemsHaveUser : items}>
