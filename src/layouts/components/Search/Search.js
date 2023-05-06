@@ -1,9 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faMagnifyingGlass,
-    faSpinner,
-    faXmark,
-} from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faSpinner, faXmark } from '@fortawesome/free-solid-svg-icons';
 import HeadlessTippy from '@tippyjs/react/headless';
 import clsx from 'clsx';
 import styles from './Search.module.scss';
@@ -53,11 +49,7 @@ function Search() {
             visible={showSearchResult && searchResult.length > 0}
             interactive
             render={(attrs) => (
-                <div
-                    className={clsx(styles.popperSearch)}
-                    tabIndex="-1"
-                    {...attrs}
-                >
+                <div className={clsx(styles.popperSearch)} tabIndex="-1" {...attrs}>
                     <PopperWrap>
                         <div className={clsx(styles.titleAccount)}>
                             <h3>Tai khoan</h3>

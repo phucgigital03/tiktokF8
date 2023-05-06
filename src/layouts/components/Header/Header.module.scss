@@ -18,6 +18,8 @@
 .innerHeader {
     width: var(--width-inner-header-Header);
     height: 100%;
+    max-width: 100%;
+    padding: 0px 20px;
     // background-color: antiquewhite;
     display: flex;
     justify-content: space-between;
@@ -26,7 +28,6 @@
 
 .logo {
     width: 300px;
-    padding-left: 16px;
 
     a {
         display: flex;
@@ -109,4 +110,8 @@
         text-align: center;
         border-radius: 8px;
     }
+}
+
+.iconMessage {
+    transform: scale(1.3);
 }

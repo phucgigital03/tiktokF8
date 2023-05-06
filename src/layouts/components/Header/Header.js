@@ -101,7 +101,9 @@ function Header() {
                             </Tippy>
                             <Tippy content="Message" placement="bottom">
                                 <span className={clsx(styles.iconHaveUser)}>
-                                    <MessageIcon />
+                                    <MessageIcon
+                                        className={clsx(styles.iconMessage)}
+                                    />
                                     <span className={clsx(styles.notifi)}>
                                         24
                                     </span>
