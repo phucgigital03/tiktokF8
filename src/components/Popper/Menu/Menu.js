@@ -1,8 +1,9 @@
 import clsx from 'clsx';
+import styles from './Menu.module.scss';
 import Tippy from '@tippyjs/react/headless';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
-import styles from './Menu.module.scss';
 import PopperWrap from '../Popper';
 import Button from '~/components/Button';
 import HeaderMenu from './HeaderMenu';
@@ -69,9 +70,7 @@ function Menu({ children, items }) {
                                 title={currentMenu.headerTitle}
                             />
                         )}
-                        <div className={clsx(styles.wrapItem)}>
-                            {renderItems()}
-                        </div>
+                        <div className={clsx(styles.wrapItem)}>{renderItems()}</div>
                     </PopperWrap>
                 </div>
             )}
@@ -80,5 +79,10 @@ function Menu({ children, items }) {
         </Tippy>
     );
 }
+
+Menu.propTypes = {
+    children: PropTypes.node.isRequired,
+    items: PropTypes.array.isRequired,
+};
 
 export default Menu;

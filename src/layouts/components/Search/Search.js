@@ -1,8 +1,8 @@
+import clsx from 'clsx';
+import styles from './Search.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faSpinner, faXmark } from '@fortawesome/free-solid-svg-icons';
 import HeadlessTippy from '@tippyjs/react/headless';
-import clsx from 'clsx';
-import styles from './Search.module.scss';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { PopperWrap } from '~/components/Popper';

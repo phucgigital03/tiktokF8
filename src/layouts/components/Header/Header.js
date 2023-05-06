@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import styles from './Header.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faPlus,
@@ -15,7 +16,6 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import { Link } from 'react-router-dom';
 
-import styles from './Header.module.scss';
 import images from '~/assets/images';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
@@ -101,21 +101,14 @@ function Header() {
                             </Tippy>
                             <Tippy content="Message" placement="bottom">
                                 <span className={clsx(styles.iconHaveUser)}>
-                                    <MessageIcon
-                                        className={clsx(styles.iconMessage)}
-                                    />
-                                    <span className={clsx(styles.notifi)}>
-                                        24
-                                    </span>
+                                    <MessageIcon className={clsx(styles.iconMessage)} />
+                                    <span className={clsx(styles.notifi)}>24</span>
                                 </span>
                             </Tippy>
                         </>
                     ) : (
                         <>
-                            <Button
-                                textOutline
-                                iconLeft={<FontAwesomeIcon icon={faPlus} />}
-                            >
+                            <Button textOutline iconLeft={<FontAwesomeIcon icon={faPlus} />}>
                                 Tai len
                             </Button>
                             <Button primary to={'/'}>

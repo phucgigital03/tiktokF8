@@ -1,7 +1,7 @@
 import clsx from 'clsx';
-import { Link } from 'react-router-dom';
-
 import styles from './Button.module.scss';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function Button({
     children,
@@ -57,11 +57,26 @@ function Button({
         >
             {iconLeft && <span className={clsx(styles.icon)}>{iconLeft}</span>}
             <span className={clsx(styles.title)}>{children}</span>
-            {iconRight && (
-                <span className={clsx(styles.icon)}>{iconRight}</span>
-            )}
+            {iconRight && <span className={clsx(styles.icon)}>{iconRight}</span>}
         </Button>
     );
 }
+
+Button.propTypes = {
+    children: PropTypes.node.isRequired,
+    primary: PropTypes.bool,
+    outline: PropTypes.bool,
+    rounded: PropTypes.bool,
+    textOutline: PropTypes.bool,
+    disabled: PropTypes.bool,
+    lg: PropTypes.bool,
+    sm: PropTypes.bool,
+    className: PropTypes.string,
+    iconLeft: PropTypes.node,
+    iconRight: PropTypes.node,
+    href: PropTypes.string,
+    to: PropTypes.string,
+    onClick: PropTypes.func,
+};
 
 export default Button;

@@ -1,9 +1,10 @@
 import clsx from 'clsx';
+import styles from './AccountItem.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import styles from './AccountItem.module.scss';
 import Image from '~/components/Image';
 
 function AccountItem({ item, handleHidden = () => {} }) {
@@ -20,10 +21,7 @@ function AccountItem({ item, handleHidden = () => {} }) {
                 <p className={clsx(styles.nameMain)}>
                     {item.full_name}
                     {item.tick && (
-                        <FontAwesomeIcon
-                            className={styles.iconCheck}
-                            icon={faCircleCheck}
-                        />
+                        <FontAwesomeIcon className={styles.iconCheck} icon={faCircleCheck} />
                     )}
                 </p>
                 <span className={clsx(styles.nameDetail)}>{item.nickname}</span>
@@ -31,5 +29,10 @@ function AccountItem({ item, handleHidden = () => {} }) {
         </Link>
     );
 }
+
+AccountItem.propTypes = {
+    item: PropTypes.object.isRequired,
+    handleHidden: PropTypes.func,
+};
 
 export default AccountItem;

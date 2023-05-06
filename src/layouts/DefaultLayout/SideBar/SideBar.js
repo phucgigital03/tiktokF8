@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-
 import styles from './SideBar.module.scss';
+
 import Menu, { MenuItem } from './Menu';
 import config from '~/config';
 import { HomeIcon, LiveIcon, UserGroupIcon } from '~/components/Icons';

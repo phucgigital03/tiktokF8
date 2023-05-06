@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-
 import styles from './DefaultLayout.module.scss';
+
 import Header from '~/layouts/components/Header';
 import SideBar from './SideBar';
 

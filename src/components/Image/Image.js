@@ -1,16 +1,11 @@
 import clsx from 'clsx';
+import styles from './Image.module.scss';
 import { useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import images from '~/assets/images';
-import styles from './Image.module.scss';
 
-function Image({
-    src,
-    alt,
-    className,
-    fallBack: fallBackFrOut = images.noImage,
-    ...props
-}) {
+function Image({ src, alt, className, fallBack: fallBackFrOut = images.noImage, ...props }) {
     const imgRef = useRef();
     const [fallBack, setFallBack] = useState('');
     const handleFallBack = () => {
@@ -33,5 +28,12 @@ function Image({
         />
     );
 }
+
+Image.propTypes = {
+    src: PropTypes.string,
+    alt: PropTypes.string,
+    className: PropTypes.string,
+    fallBack: PropTypes.string,
+};
 
 export default Image;
