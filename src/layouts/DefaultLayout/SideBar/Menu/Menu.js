@@ -1,5 +1,5 @@
 function Menu({ children }) {
-    return <nav>{children}</nav>;
+    return <nav style={{ marginBottom: '8px' }}>{children}</nav>;
 }
 
 export default Menu;

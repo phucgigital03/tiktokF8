@@ -29,6 +29,7 @@ function App() {
                             />
                         );
                     })}
+                    {/* hanlde private route */}
                 </Routes>
             </div>
         </Router>

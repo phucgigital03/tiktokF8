@@ -1,5 +1,12 @@
+import styles from './Home.module.scss';
+import clsx from 'clsx';
+
 function Home() {
-    return <h3 style={{ height: '2000px' }}>Home</h3>;
+    return (
+        <div className={clsx(styles.mainContainer)}>
+            <h1>Home</h1>
+        </div>
+    );
 }
 
 export default Home;

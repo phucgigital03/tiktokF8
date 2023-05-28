@@ -1,0 +1,70 @@
+.suggestAccounts {
+    padding: 16px 0px;
+    border-top: 1px solid #1618231f;
+}
+
+.heading {
+    padding: 0 8px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: #161823bf;
+    opacity: 0.9;
+}
+
+.watchMore {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    cursor: pointer;
+    padding: 0px 8px;
+    margin-top: 8px;
+    display: inline-block;
+}
+
+// AccountItem
+.accountItem {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 4px;
+    transition: background-color ease-in-out 300ms;
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.image {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.wrapInfo {
+    flex: 1;
+}
+
+.nickName {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 2.1rem;
+    color: var(--text-color);
+}
+
+.checkIcon {
+    color: #20d5ec;
+    font-size: 1.4rem;
+    margin-left: 6px;
+}
+
+.name {
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    opacity: 0.6;
+}

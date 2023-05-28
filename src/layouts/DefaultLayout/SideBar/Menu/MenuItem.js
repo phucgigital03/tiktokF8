@@ -4,7 +4,12 @@ import styles from './Menu.module.scss';
 
 function MenuItem({ to, title, icon }) {
     return (
-        <NavLink className={clsx(styles.navLink)} to={to}>
+        <NavLink
+            className={(nav) => {
+                return clsx(styles.navLink, { [styles.active]: nav.isActive });
+            }}
+            to={to}
+        >
             {icon}
             <span className={clsx(styles.title)}>{title}</span>
         </NavLink>
